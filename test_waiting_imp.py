@@ -15,7 +15,10 @@ def test_waiting_imp():
     # Find and click "Start" button
     driver.find_element_by_xpath("//button[contains(text(),'Start')]").click()
 
-    driver.find_element_by_xpath("//h4[contains(text(),'Hello World!')]")
+    element = driver.find_element_by_xpath("//h4[contains(text(),'Hello World!')]")
+    assert element.text == 'Hello World!'
     print("Element found!")
+    print(element.text)
+    print("Test complete")
 
     driver.quit()

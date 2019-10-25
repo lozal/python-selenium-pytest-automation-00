@@ -18,9 +18,12 @@ def test_waiting_exp():
     driver.find_element_by_xpath("//button[contains(text(),'Start')]").click()
 
     wait = WebDriverWait(driver, 10)  # Decrease to 3 to get the element not found (failed)
-    element = wait.until(ec.presence_of_element_located((By.ID, 'finish')))
-    driver.find_element_by_xpath("//h4[contains(text(),'Hello World!')]")
+    wait.until(ec.presence_of_element_located((By.ID, 'finish')))
+    element = driver.find_element_by_xpath("//h4[contains(text(),'Hello World!')]")
+    assert element.text == 'Hello World!'
     print("Element found!")
+    print(element.text)
+    print("Test complete")
 
     driver.quit()
 
