@@ -7,14 +7,14 @@ import time
 
 driver: WebDriver = None
 
-
+# setup up any state specific to the execution of the given module
 def setup_module():
     print("------- setup_module ---------")
     global driver
     driver = WebDriver()
     driver.implicitly_wait(5)
 
-
+# teardown any state that was previously setup with a setup_module method
 def teardown_module():
     print("-------- teardown_module -----")
     global driver
